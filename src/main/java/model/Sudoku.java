@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Sudoku {
     private Character[][] sudoku = new Character[9][9];
-    private ArrayList<Character>[][] possibleNumbers = new ArrayList[9][9]; //MIGHT PRODUCE UNWANTED BEHAVIOUR
+    private ArrayList<Character>[][] possibleNumbers = new ArrayList[9][9];
 
     public Sudoku(Character[][] sudoku) {
         copySudoku(sudoku, this.sudoku);
