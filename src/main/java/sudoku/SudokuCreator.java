@@ -4,11 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import java.util.Arrays;
-
-
 public class SudokuCreator {
     public Label loading = new Label();
+    public Label unsolvable = new Label();
     private Sudoku sudoku;
     public Button Cell11 = new Button();
     public Button Cell12 = new Button();
@@ -198,17 +196,23 @@ public class SudokuCreator {
     }
 
     private void showOutput() {
-        Character[][] solved = sudoku.getSudoku();
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                buttons[i][j].setText(solved[i][j].toString());
+        if (sudoku.canBeSolved()) {
+            Character[][] solved = sudoku.getSudoku();
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    buttons[i][j].setText(solved[i][j].toString());
+                }
             }
+        } else {
+            loading.setText("");
+            unsolvable.setText("This Sudoku cannot be solved! check your input and try again!");
         }
     }
 
     public void reset(ActionEvent actionEvent) {
         mapButtons();
         loading.setText("");
+        unsolvable.setText("");
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 buttons[i][j].setText("");
