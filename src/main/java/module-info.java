@@ -7,4 +7,7 @@ module Sudoko.Solver {
 
     opens graphic to javafx.fxml;
     exports graphic;
+
+    opens sudoku to javafx.fxml;
+    exports sudoku;
 }

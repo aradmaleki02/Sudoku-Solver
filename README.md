@@ -1,1 +1,1 @@
-# controller.Sudoku-Solver
+# sudoku.Sudoku-Solver

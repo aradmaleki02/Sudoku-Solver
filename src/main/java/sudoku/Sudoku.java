@@ -1,9 +1,14 @@
-package controller;
+package sudoku;
 
 import java.util.ArrayList;
 
 public class Sudoku {
     private Character[][] sudoku = new Character[9][9];
+
+    public Character[][] getSudoku() {
+        return sudoku;
+    }
+
     private ArrayList<Character>[][] possibleNumbers = new ArrayList[9][9];
 
     public Sudoku(Character[][] sudoku) {
