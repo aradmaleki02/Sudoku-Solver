@@ -1,4 +1,6 @@
+package controller;
 
+import controller.IOHandler;
 
 public class Main {
 
