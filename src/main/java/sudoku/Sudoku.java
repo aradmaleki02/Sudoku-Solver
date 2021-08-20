@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class Sudoku {
     private Character[][] sudoku = new Character[9][9];
+    private ArrayList<Character>[][] possibleNumbers = new ArrayList[9][9];
 
     public Character[][] getSudoku() {
         return sudoku;
     }
-
-    private ArrayList<Character>[][] possibleNumbers = new ArrayList[9][9];
 
     public Sudoku(Character[][] sudoku) {
         copySudoku(sudoku, this.sudoku);
@@ -102,7 +101,7 @@ public class Sudoku {
         int y = 0;
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (sudoku[i][j] == '0'){
+                if (sudoku[i][j] == '0') {
                     x = i;
                     y = j;
                     break;
@@ -111,7 +110,7 @@ public class Sudoku {
         }
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (sudoku[i][j] == '0' && possibleNumbers[x][y].size() > possibleNumbers[i][j].size()){
+                if (sudoku[i][j] == '0' && possibleNumbers[x][y].size() > possibleNumbers[i][j].size()) {
                     x = i;
                     y = j;
                     break;
@@ -122,11 +121,11 @@ public class Sudoku {
         copySudoku(sudoku, newSudoku);
         for (int i = 0; i < possibleNumbers[x][y].size(); i++) {
             newSudoku[x][y] = possibleNumbers[x][y].get(i);
-            if (new Sudoku(newSudoku).canBeSolved()) {
-                sudoku[x][y] = possibleNumbers[x][y].get(i);
+            Sudoku testSudoku = new Sudoku(newSudoku);
+            if (testSudoku.canBeSolved()) {
+                this.sudoku = testSudoku.getSudoku();
                 break;
-            }
-            else if (i == possibleNumbers[x][y].size() - 1) {
+            } else if (i == possibleNumbers[x][y].size() - 1) {
                 possibleNumbers[x][y] = new ArrayList<>();
             }
         }
@@ -144,6 +143,8 @@ public class Sudoku {
     }
 
     public boolean canBeSolved() {
+        if (invalidInput())
+            return false;
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (possibleNumbers[i][j].size() == 0 && sudoku[i][j] == '0') {
@@ -152,6 +153,23 @@ public class Sudoku {
             }
         }
         return true;
+    }
+
+    private boolean invalidInput() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                for (int k = 0; k < 9; k++) {
+                    for (int l = 0; l < 9; l++) {
+                        if (sudoku[i][j] != '0' && sudoku[k][l] != '0' && sudoku[i][j] == sudoku[k][l] && (i != k || j != l)) {
+                            if (i == k || j == l || (i / 3 == k / 3 && j / 3 == l / 3)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public String toString() {
