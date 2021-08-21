@@ -535,13 +535,13 @@
       <Line endX="-574.0" endY="433.4000244140625" layoutX="912.0" layoutY="41.0" startX="-574.0" startY="24.0" />
       <Line endX="-574.0" endY="433.4000244140625" layoutX="1015.0" layoutY="41.0" startX="-574.0" startY="24.0" />
       <Line endX="-574.0" endY="433.4000244140625" layoutX="1067.0" layoutY="41.0" startX="-574.0" startY="24.0" />
-      <Label fx:id="loading" alignment="CENTER" layoutX="325.0" layoutY="550.0" prefHeight="40.0" prefWidth="183.0">
+      <Label fx:id="loading" alignment="CENTER" layoutX="324.0" layoutY="545.0" prefHeight="40.0" prefWidth="183.0">
          <font>
-            <Font size="20.0" />
+            <Font name="Script MT Bold" size="20.0" />
          </font></Label>
       <Label fx:id="unsolvable" alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="542.0" prefHeight="46.0" prefWidth="727.0">
          <font>
-            <Font size="24.0" />
+            <Font name="Script MT Bold" size="24.0" />
          </font>
       </Label>
    </children>
