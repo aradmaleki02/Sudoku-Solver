@@ -3,6 +3,7 @@ package sudoku;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
 
 public class SudokuCreator {
     public Label loading = new Label();
@@ -179,6 +180,9 @@ public class SudokuCreator {
     }
 
     public void create(ActionEvent actionEvent) {
+        if (selectedButton != null){
+            selectedButton.setStyle("-fx-background-color: #ffffff; ");
+        }
         mapButtons();
         loading.setText("Loading ...");
         Character[][] sudokuInput = new Character[9][9];
@@ -210,6 +214,9 @@ public class SudokuCreator {
     }
 
     public void reset(ActionEvent actionEvent) {
+        if (selectedButton != null){
+            selectedButton.setStyle("-fx-background-color: #ffffff; ");
+        }
         mapButtons();
         loading.setText("");
         unsolvable.setText("");
@@ -222,14 +229,20 @@ public class SudokuCreator {
 
 
     public void select(ActionEvent actionEvent) {
+        if (selectedButton != null){
+            selectedButton.setStyle("-fx-background-color: #ffffff; ");
+        }
         selectedButton = (Button) actionEvent.getSource();
+        selectedButton.setStyle("-fx-background-color: #e9e6e6; ");
     }
 
     public void insert(ActionEvent actionEvent) {
         String id = ((Button) actionEvent.getSource()).getId();
         if (id.equals("Clear"))
             selectedButton.setText("");
-        else
+        else {
             selectedButton.setText(id.substring(6));
+            selectedButton.setTextFill(Paint.valueOf("#FF0000"));
+        }
     }
 }

@@ -11,14 +11,14 @@
    <children>
       <Label alignment="TOP_CENTER" layoutX="250.0" layoutY="16.0" prefHeight="18.0" prefWidth="124.0" style="-fx-background-color: yellow;" text="Sudoku Solver">
          <font>
-            <Font name="System Italic" size="16.0" />
+            <Font name="Segoe Print" size="16.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Label>
-      <Button fx:id="Submit" layoutX="146.0" layoutY="489.0" mnemonicParsing="false" onAction="#create" prefHeight="40.0" prefWidth="124.0" style="-fx-background-color: #00FFFF;" text="Submit">
+      <Button fx:id="Submit" layoutX="146.0" layoutY="489.0" mnemonicParsing="false" onAction="#create" prefHeight="40.0" prefWidth="124.0" style="-fx-background-color: #00FFFF;" text="Solve">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold Italic" size="14.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -98,7 +98,7 @@
       </Button>
       <Label alignment="CENTER" layoutX="589.0" layoutY="147.0" prefHeight="18.0" prefWidth="206.0" style="-fx-background-color: yellow;" text="Choose Number">
          <font>
-            <Font size="22.0" />
+            <Font name="Bauhaus 93" size="22.0" />
          </font>
       </Label>
       <Button fx:id="Clear" layoutX="664.0" layoutY="373.0" mnemonicParsing="false" onAction="#insert" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #00FFFF;" text="Clear">
@@ -106,7 +106,10 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="Reset" layoutX="354.0" layoutY="489.0" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="124.0" style="-fx-background-color: Turquoise;" text="Reset" />
+      <Button fx:id="Reset" layoutX="354.0" layoutY="489.0" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="124.0" style="-fx-background-color: #00FFFF;" text="Reset">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></Button>
       <Button fx:id="Cell11" layoutX="78.0" layoutY="66.0" mnemonicParsing="false" onAction="#select" prefHeight="46.0" prefWidth="52.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
