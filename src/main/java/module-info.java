@@ -5,6 +5,9 @@ module Sudoko.Solver {
     requires com.google.gson;
 
 
-    opens view to javafx.fxml;
-    exports view;
+    opens graphic to javafx.fxml;
+    exports graphic;
+
+    opens sudoku to javafx.fxml;
+    exports sudoku;
 }
