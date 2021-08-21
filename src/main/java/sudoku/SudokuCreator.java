@@ -223,6 +223,7 @@ public class SudokuCreator {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 buttons[i][j].setText("");
+                buttons[i][j].setTextFill(Paint.valueOf("#000000"));
             }
         }
     }
@@ -238,8 +239,10 @@ public class SudokuCreator {
 
     public void insert(ActionEvent actionEvent) {
         String id = ((Button) actionEvent.getSource()).getId();
-        if (id.equals("Clear"))
+        if (id.equals("Clear")) {
             selectedButton.setText("");
+            selectedButton.setTextFill(Paint.valueOf("#000000"));
+        }
         else {
             selectedButton.setText(id.substring(6));
             selectedButton.setTextFill(Paint.valueOf("#FF0000"));
